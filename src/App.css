@@ -1,0 +1,69 @@
+.client-layout {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+
+  /* width: auto; */
+  background: rgb(209, 223, 227);
+}
+/* 
+.client-layout {
+  display: flex;
+} */
+
+.form-center {
+  width: 450px;
+  margin: auto;
+}
+
+.profile {
+  background: rgb(120, 172, 144);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1rem;
+  font-weight: bolder;
+  color: white;
+}
+
+.carousel {
+  height: 90vh;
+}
+.carousel img {
+  height: 90vh;
+  object-fit: cover;
+}
+
+.cart {
+  background: rgb(205, 210, 207);
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  font-size: 5rem;
+  font-weight: bolder;
+  color: rgb(228, 12, 12);
+  margin-left: 10px;
+}
+
+.nav-menu {
+  background: antiquewhite;
+  font-size: 20px;
+  color: antiquewhite;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.card {
+  height: 100%;
+}
+.qty {
+  padding-right: 3px;
+  font-size: 20px;
+}
