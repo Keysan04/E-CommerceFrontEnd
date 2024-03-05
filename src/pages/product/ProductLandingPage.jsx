@@ -13,7 +13,7 @@ import {
 import { FaStar } from "react-icons/fa6";
 import { FaStarHalf } from "react-icons/fa6";
 import { getAProduct } from "../profile/userAction";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import {
   setCartItems,
@@ -30,7 +30,7 @@ const ProductLandingPage = () => {
   const [showReview, setShowReview] = useState(false);
   const [totalItems, setTotalItems] = useState([]);
   const [cartItem, setCartItem] = useState(false);
-
+  const [makeThumbnail, setMakeThumbnail] = useState(false);
   //   const { product } = useSelector((state) => state.userInfo);
   const { selectedProduct } = useSelector((state) => state.userInfo);
   const { counter } = useSelector((state) => state.systemInfo);
@@ -41,9 +41,12 @@ const ProductLandingPage = () => {
     _id && dispatch(getAProduct(_id));
   }, [_id, dispatch]);
 
-  // useEffect(() => {
-  //   setTotalItems(obj);
-  // }, []);
+  useEffect(() => {
+    setTotalItems({
+      ...totalItems,
+    });
+    console.log(totalItems);
+  }, []);
   const numbers = [];
 
   for (let i = 1; i <= 20; i++) {
@@ -58,6 +61,7 @@ const ProductLandingPage = () => {
     salesEndDate,
     description,
     thumbnail,
+    images,
   } = selectedProduct;
 
   const handleOnPriceChange = (e) => {
@@ -79,7 +83,7 @@ const ProductLandingPage = () => {
       thumbnail: "http://localhost:8001" + thumbnail,
     };
     console.log(obj);
-    // setTotalItems([obj, totalItems]);
+    setTotalItems(obj);
     console.log(totalItems);
     dispatch(setCounter(counter + 1));
 
@@ -101,11 +105,35 @@ const ProductLandingPage = () => {
         <Row className="mt-4">
           <Col md={5}>
             <div>
-              <img
-                src={`http://localhost:8001/${thumbnail}`}
-                width="100%"
-                className="shadow-lg img-thumbnail"
-              />
+              <div>
+                <img
+                  src={`http://localhost:8001/${thumbnail}`}
+                  width="100%"
+                  className="shadow-lg img-thumbnail"
+                />
+              </div>
+              <div
+                className="d-flex mt-4 pt-2 gap-2"
+                style={{ height: "170px", width: "170px" }}
+              >
+                <Link></Link>
+                <img
+                  src={`http://localhost:8001/${images[1]}`}
+                  width="100%"
+                  className="shadow-lg img-thumbnail"
+                  onClick={() => setMakeThumbnail(true)}
+                />
+                <img
+                  src={`http://localhost:8001/${images[3]}`}
+                  width="100%"
+                  className="shadow-lg img-thumbnail"
+                />
+                <img
+                  src={`http://localhost:8001/${images[2]}`}
+                  width="100%"
+                  className="shadow-lg img-thumbnail"
+                />
+              </div>
             </div>
           </Col>
 

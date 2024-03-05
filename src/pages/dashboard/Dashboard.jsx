@@ -33,7 +33,7 @@ const Dashboard = () => {
   const handleOnCategorySelect = async (id) => {
     const { data } = await getItemByCategory(id);
     setSelectedCatProducts(data);
-
+    console.log(selectedCatProducts);
     setShowSelectedProduct(true);
   };
 
@@ -108,7 +108,7 @@ const Dashboard = () => {
               className="d-flex justify-content-center flex-wrap mt-5 gap-3 g-4"
             >
               {filteredItem.map((item, i) => (
-                <Link to={`/product/${item._id}`} key={i}>
+                <Link to={`/product/${item.slug}`} key={i}>
                   <CustomCard {...item} />
                 </Link>
               ))}
